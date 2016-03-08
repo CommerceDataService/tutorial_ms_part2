@@ -4,6 +4,6 @@ Power BI is a free piece of software from Microsoft.  With simple out-of-the box
 
 Data analysis using open government data has taken the center stage for everything from community organizing to starting or growing a business to crafting good public policy. Many government entities – federal, state, and local – have made open data a cornerstone of their transparency initiatives.  But opening data to the public is just the first step to driving knowledge and insights in using that data. People need easy to use tools to help them discover, combine, analyze, and visualize that data. This two part tutorial will cover how to use the tool Power BI with open data from both federal and local data sources.
 
-In Part 1 of this tutorial series, you will learn how to pull data into Power BI.  We will then do some transforming of the data to make it in the exact format we want in order to use it. We will create some simple visuals with that data.  And then we will ask questions in, natural language, to gain some insights.
+In Part 2 of this tutorial series, we will create reports, dashboards, and ask questions of our data in plain English using the web app using The annual counts per Metropolitan Statistical Area are available at the [U.S. Census Bureau](https://www.census.gov/construction/bps/msaannual.html).
 
 Suggestions? Email adamh@microsoft.com
