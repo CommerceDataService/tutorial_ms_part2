@@ -1,331 +1,210 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <link rel="shortcut icon" href="https://www.commerce.gov/sites/all/themes/doc/doc_theme/favicon.ico" type="image/vnd.microsoft.icon" />
-    <title> Reporting Power BI </title>
+    <title>Microsoft - Part 2</title>
 
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=320, height=device-height, target-densitydpi=medium-dpi" />
+    <!-- Javascript -->
+    <script src="https://code.jquery.com/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="js/parallax.js"></script><!-- Parallax Banner -->
+    <script src="js/navbar.hide.js"></script><!-- Hide Navbar -->
+    <script src="js/scroll.js"></script><!-- Affix Sidebar/Scroll Functions -->
 
-        <link rel="stylesheet" href="css/creative.css" type="text/css">
-        <link rel="stylesheet" href="css/animate.min.css" type="text/css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/cdup_tutorial.css"><!-- Custom Theme for know.data tutorial -->
+    <link href='https://fonts.googleapis.com/css?family=Coda:400,800' rel='stylesheet' type='text/css'><!-- Google Font for Title -->
+    
+    <!-- Syntax Highlighting -->
+    <!-- Support for the following languages: -->
+    <!-- Apache, Bash, C#, C++, CSS, CoffeeScript, Device Tree, Diff, HTML, XML, HTTP, Ini, JSON, Java, JavaScript, Makefile, Markdown, Nginx, Objective-C, PHP, Perl, Python, Ruby, SQL, Fortran, Julia, Lisp, Lua, Mathematica, Matlab, Python-Profile, R, Scilab, Scala, Stata, Swift -->
+    <link rel="stylesheet" type="text/css" href="css/styles/github.css"><!-- Style for highlighting Code: Default to Github -->
+    <script src="js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script><!-- Activate Code Highlighting -->
 
-        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <script src="js/parallax.js"></script>
-
-        <meta charset="utf-8">
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="generator" content="pandoc"/>
-
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-        <!-- <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> -->
-        <style type="text/css">
-          pre:not([class]) {
-            background-color: white;
-          }
-        </style>
-        <script type="text/javascript">
-        if (window.hljs && document.readyState && document.readyState === "complete") {
-           window.setTimeout(function() {
-              hljs.initHighlighting();
-           }, 0);
-        }
-        </script>
-
-        <script type="text/javascript">
-            window.addEventListener("hashchange", function() { scrollBy(0, -50) })
-        </script>
-
-        <style>
-            
-        html, body. div{
-          width: auto !important;
-          overflow-x: hidden !important;
-        }
-
-        hr {
-            width: 100%;
-            height: 8px;
-            margin-left: auto;
-            margin-right: auto;
-            background-color:white;
-            color:white;
-            border: 0 none;
-            }
-          #btn {
-            background: #7cbb00;
-            /*background: #d93434;*/
-            background-image: -webkit-linear-gradient(top, #7cbb00, #820a0a);
-            background-image: -moz-linear-gradient(top, #7cbb00, #820a0a);
-            background-image: -ms-linear-gradient(top, #7cbb00, #820a0a);
-            background-image: -o-linear-gradient(top, #7cbb00, #820a0a);
-            background-image: linear-gradient(to bottom, #7cbb00, #820a0a);
-            -webkit-border-radius: 4;
-            -moz-border-radius: 4;
-            border-radius: 4px;
-            font-family: Arial;
-            color: #ffffff;
-            font-size: 12px;
-            padding: 10px 20px 10px 20px;
-            text-decoration: none;
-          }
-
-          #btn:hover {
-            background: #6387cf;
-            background-image: -webkit-linear-gradient(top, #6387cf, #3498db);
-            background-image: -moz-linear-gradient(top, #6387cf, #3498db);
-            background-image: -ms-linear-gradient(top, #6387cf, #3498db);
-            background-image: -o-linear-gradient(top, #6387cf, #3498db);
-            background-image: linear-gradient(to bottom, #6387cf, #3498db);
-            text-decoration: none;
-          }
-
-          .main-container {
-            max-width: 940px;
-            margin-left: auto;
-            margin-right: auto;
-          }
-          code {
-            color: inherit;
-            background-color: rgba(0, 0, 0, 0.04);
-          }
-          img {
-            max-width:100%;
-            height: auto;
-          }
-          #woot{
-            background-color: white;
-            opacity: 0.9;
-            color:#7cbb00;
-            padding: 10px;
-            border-radius: 10px;
-            font-family: Helvetica;
-          }
-          #weight{
-            font-weight: bold;
-          }
-            .main-container {
-              max-width: 940px;
-              margin-left: auto;
-              margin-right: auto;
-            }
-            code {
-              color: inherit;
-              background-color: rgba(0, 0, 0, 0.04);
-            }
-            img {
-              max-width:100%;
-              height: auto;
-            }
-        </style>
-    </head>
-
+</head>
 <body>
-
-
-<!--NavBar-->
-     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+    <nav id='navbar' class="nav navbar-default navbar-fixed-top navbar-border"><!-- Navbar -->
         <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-links" aria-expanded="false">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="http://www.microsoft-chicago.com/"><img style="max-width:100%; max-height:100%;" src="img/logo.png"></a>
-            </div>
+                <a class="navbar-brand navbar-color" href="https://commerce.gov/datausability"><strong>Data Usability</strong></a>
+            </div> <!-- navbar-header -->
 
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a class="page-scroll" href="#top">Home</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#start">Start</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#report">Report</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#dash">Dashboard</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#publish">Publish</a>
-                    </li>
+            <div class="collapse navbar-collapse" id="collapse-links">
+                <ul class="nav navbar-nav navbar-color">
+                    <li class="disclaimer"><a href="https://commerce.gov/datausability">a project by Commerce Data Service</a></li>
                 </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
+                <ul class="nav navbar-nav navbar-right navbar-color">
+                    <li><a href="#">Index</a></li>
+                    <li><a href="http://microsoft-chicago.com/">Microsoft Chicago</a></li>
+                </ul>
+            </div><!-- navbar-collapse -->
+        </div><!-- container-fluid -->
     </nav>
 
-<!--Cover-->
-
-    <section class="scroll backie datacorps " id="top">
-        <div class="header-content">
-            <div class="header-content-inner" >
-                <h2 style="position:absolute;left:15%; top:50%;text-align:left;">
-                    <div id="woot">
-                        <span style="font-size:150%;line-height:1.3;" >
-                          asking questions with<strong><br>Power</strong> BI:<br></span>
-                          <span style="font-size:110%;line-height:1.3;">building, reporting, sharing<br></span>
-
-                          <a id = "btn" href="https://github.com/CommerceDataService/tutorial_ms_part2/zipball/master"> <strong>ZIP File</strong></a>
-                          <a id = "btn" href="https://github.com/CommerceDataService/tutorial_ms_part2/tarball/master"> <strong>TAR Ball</strong></a>
-                          <a id = "btn" href="https://github.com/CommerceDataService/tutorial_ms_part2"><strong>GitHub</strong></a>
-
-                          <p><br>Use Power BI to visualize construction</p>
-                      </div>
-                </h2>
+    <!-- Banner -->
+    <section class="scroll " style="font-family:HelveticaNeue-Light">
+        <div class="scroll-overlay ">
+            <div class="title headtext">
+                <small><span class="title-line" style="font-size:120%;"><i> Start Here </i></span></small><br>
+                <h1><span class="title-line" style="font-size:150%;">ASKING QUESTIONS WITH POWER BI: BUILDING, REPORTING, SHARING</span></h1>
+                <h4><span class="title-line">Part 2: Use Power BI to visualize construction activity</span></h4>
+                <h5 ><span class="title-line">by ADAM J. HECKTMAN & FRANK J. LA VIGNE, MICROSOFT CHICAGO</span></h5>
+                <h5><span class="title-line">edited by STAR YING & JEFF CHEN, COMMERCE DATA SERVICE</span></h5>
+                <h5><span class="title-line">APRIL 2016</span></h5>
             </div>
         </div>
-
     </section>
 
-
-
-
-    <body>
-
-
-
-<!--header-->
-<div class="container-fluid main-container" style="background-color:white;">
-    <br>
-    <div class='container'>
-    <br><br>
-        <div class="row">
-            <div class="col-lg-2"style="font-family:Helvetica;text-align:left;background-color:white; border-style: solid;
-                border-color:lightgrey;border-radius:5px;border-width: 2px;">
-                <p><span style="font-size:120%;color:#7cbb00;">Credits</span>
-                    <small><br><strong><a href="http://www.microsoft-chicago.com/">Microsoft Chicago</a></strong>
-                    <ul>
-                        <li><a href="http://twitter.com/adamhecktman">Adam J. Hecktman</a></li>
-                        <li><a href="https://twitter.com/tableteer">Frank J. La Vigne</a></li>
-                    </ul>
-                    <strong>Edited by the Commerce Data Service</strong><br>
-                    <ul>
-                        <li>Star Ying</li>
-                    </ul>
-                    </small>
-                </p>
+    <!-- Body -->
+    
+    <section>
+        <div class="container-fluid content">
+            <div class="row">
+                
+                    
+                <div id='' class="hidden-xs hidden-sm col-lg-4 col-md-4">
+                    <a href="https://commerce.gov/dataservice"><img class = "footlogo" width="160px"src="img/CDS-horizontal-v2.jpg"/></a>
+                    <a href="https://microsoft.com"><img class = "footlogo"  width="160px"src="img/logo.png"/></a>
+                    
+                </div>
+                <div id='content' class="col-lg-6 col-md-6">
+                    <em>As part of the <a href="https://www.commerce.gov/datausability/">Commerce Data Usability Project</a>,  Microsoft Chicago in collaboration with the <a href="https://www.commerce.gov/dataservice/">Commerce Data Service</a> has created a  tutorial that introduces PowerBI as a way to explore Commerce data.  If you have question, feel free to reach out to the Commerce Data Service at <a href="mailto:DataUsability@doc.gov">DataUsability@doc.gov</a>.</em>
+                    
+                </div>
+      
             </div>
-            <div class="col-lg-7">
-                <p style="font-family:Helvetica;">
-                <span style="font-size:150%;color:darkgrey;"><strong>Introducing Power BI:</strong><br></span>
-                <span style='color:darkgrey'>
-                Power BI is a free piece of software from Microsoft. With simple out-of-the box dashboards for services like oData, Hadoop, and other common open data sources (as well as commercial data sources like Salesforce, Google Analytics, and Dynamics) you can get insights from your data very quickly. It runs as a web service through a browser or as a desktop application. While this tutorial will give you experience using both the desktop app as well as the sharing functionality of Power BI in the browser.
-                </span>
-                </p>
-            </div>
-        </div>
+            <hr>
+            
+             <br>
+        
+            
+            <div class="row">
+                <div id='content' class="col-lg-10 col-md-10"><!-- Content -->
+                    <section id='report' >
+                        <h3></h3>
+                        <p>In the last tutorial, we got started with the Power BI desktop application, and then started exploring the Power BI web app, which provides similar functionality right from the browser.  In this tutorial, we will create reports, dashboards, and ask questions of our data in plain English using the web app.</p>
+                        <p>For this tutorial, we will use another dataset from the US Census Bureau's residential building permits.  In the next tutorial, we will show how to create this dataset by building a query that combines separate data sets from separate years into a single, easy to use data set.  But for now, make sure you have the file Building Permits 2011-2014 downloaded from the <a href="https://github.com/CommerceDataService/tutorial_ms_part2/tree/master/data">Github repo</a>.  Note that this data can be in just about any format.  Power BI accepts a wide variety of formats from a wide variety of sources.</p>
+
+                        <img src="img/image1.png" style="width: 100%">
+                        <p>To open the web app, go back to <a href="http://www.PowerBI.com">PowerBI.com</a> and ign in. You will see something like this:
+
+                        <p>The navigation pane on the left is your workspace.  It contains the three basic building blocks of Power BI: your dashboards, your reports, and your datasets.  On the right, it will open the last dashboard you created (yours may be blank, as this is your first time).   First, we are going to "get our data".  Click on Get Data on the lower left. You will have options as to where your data can be located.  It can be a service, a file, even a database somewhere.  In this case, you will use the sample file, so click on files, then click on local files.  Point it to wherever you downloaded <i>Building Permits 2011-2014.xlsx</i>.  Without doing anything else, Power BI has gotten you started with a few things:</p>
+
+                        <p> First, note that the dataset appears in your catalog of datasets on the lower left part of the navigation pane.  Also note that it has gotten a blank dashboard started for you.  And, in the right, just as in Part 1, it knows about the fields in your table and gives you visualizations to try.  Let’s create a report.
+                        </p>
+                    </section>
+                    <section id='report' >
+                        <h2 class="sectionhead">SO REPORT ME!</h2>
+                        <p>Let's start with the absolute basic. We will see how many residential permits were issued in the US over time. Line charts are good for time series, so let's create a report in three clicks. First, click on the line chart icon under visualizations:</p>
+                        <br><br>
+                        <img src="img/image2%20copy.png" style="width: 100%">
+                        <br><br>
+                        <p>Next, simply click the fields you want to track. Power BI will figure out the axis. Click year and click total. Right away, you have a simple line chart. Let's break it down to see how big projects (with 5 or more units) versus how many small projects (1 unit) compared. Click on the 1-unit check box under Fields, then click on the 5 Units. Now you have three lines and can spot the trends.</p>
+                        <p>Notice that it gave a name and a legend above the chart. You can change that title if you want it to be more meaningful. Click on the Edit icon (the little pencil in the Visualize pane), and expand the Title options. We can call this "Permits By Unit Number". Move the chart to the upper right and make room for our next chart. </p>
+                        <br><br>
+                        <img src="img/image4.png" style="width: 100%">
+                        <br><br>
+                        <p>We are now going to compare the total building permits by geography. The geography in this data set is based on metropolitan area. For example, the Chicago area is represented by the name "Chicago-Joliet-Naperville, IL-IN-WI".  Power BI will do its best to figure out the optimal chart type even if you do not specify what that chart type is. Let's try this. Click on a blank space, then simply click on the Total field. You can see a column chart starting to form. Now click on Metro Region (our geography). Now you have a column chart with each column representing a metropolitan area. Stretch it to the right so that it horizontally reaches across the screen, and you will have something like this:</p>
+                        <br><br>
+                        <img src="img/image5.png" style="width: 100%">
+                        <br><br>
+                        <p>Something very interesting has happened here. Without any user interaction, these two visuals are automatically tied together. Power BI figures out the relationship on its own. For example, click on one of the columns representing a metro area. Notice that not only has the column chart put the focus on that area, the line chart is automatically filtered for that area as well!  Click on other metro areas and see how it changes.</p>
+                        <p>Of course, this being geographic data, a map would be nice. Click in blank space in the upper right, and click on the World Map visual. You can use drag and drop to place the fields on the visual pane. For example, let's drag Metro Region to location. You will see circles across the U.S. Expand the size of the visual by dragging from one of the corners. Zoom in and you can get a better view. Now we need a field to represent the size of the circle. Drag the Total field to value. Zoom in until you can see the different sizes of the circles. Note that in data sets where latitude and longitude are available, you can use these as location fields if that level of precision is warranted.</p>
+                        <p>Let's add a couple of more visuals and then share these in the form of a dashboard. Arrange your pallet so that it looks like this:</p>
+                        <br><br>
+                        <img src="img/image6.png" style="width: 100%">
+                        <br><br>
+                        <p>We will add two more items to that space in the lower left. First, a simple gauge that shows the total permits issued in the 4-year period. Click on the blank space gauge visual in the Visualizations pane. Drag the Total field as the value. Now make it small enough to add one more item – the slicer.</p>
+                        <p>A slicer allows you to filter all of your data using a check box. Click on the last blank space on your pallet on the lower left and then click on the Slicer from the Visualization pane. Now, all you have to do is tell it how you want the user to be able to "slice" the data. Drag the Year field into the Values. Resize and place it so that it looks like this:</p>
+                        <br><br>
+                        <img src="img/image7.png" style="width: 100%">
+                        <br><br>
+                        <p>You have one more task. We want to give our users the option of selecting all years, with one click. With the slicer selected, click on the Edit icon. Expand the Selection Controls and turn on Select All and turn Single Select off. Now go back and play with the check boxes on the Slicer and see what happens to the rest of your visuals.</p>
+                    </section>
+                    <section id='dash' >
+                        <h2 class="sectionhead">GOTTA DASH!</h2>
+                        <p> You can take items from your various reports and create a dashboard for yourself or your users. Personalized dashboards allow you to monitor your most important data, at a glance. A dashboard can combine all sorts of data (on-premises and cloud-born data) in a single pane of glass, providing a consolidated view across the organization regardless of where the data lives. Each metric, or insight, is displayed on the dashboard as a tile. In this simple case, however, we are going to use a single source of our data.</p>
+                        <p>First, you need to decide which elements should appear on your dashboard. Hover over your visualizations and you will see a Push Pin icon in the upper right hand corner. This allows you to "pin" that visual to the dashboard of your choice. Choose a visual and click on the Push Pin. The first time you do it, it will ask you to save the report (if you haven't already). Then it will ask you which Dashboard you want to pin it to. </p>
+                        <br><br>
+                        <img src="img/image8.png" style="width: 100%">
+                        <br><br>
+                        <p>You can pin it to an existing dashboard or a new one. Chose New dashboard and give it a name such as "US Building Permits". Do the same for the rest of the visuals (you won't be able to pin the slicer, and you will see why you don't need to later). Now adjust your visuals the way you would like them, leaving room for one more widget that we will add next. For example:</p>
+                        <br><br>
+                        <img src="img/image9.png" style="width: 100%">
+                        <br><br>
+                        <p>Click on add widget in the upper right. You will be able to add images, web content, text boxes, and video. Click on Video. Use the URL <a href="https://youtu.be/vaPIYb7NDRc">https://youtu.be/vaPIYb7NDRc</a>for the video URL and Commerce Data Advisory Committee Meeting for your title. Now you have YouTube video embedded right where your users need it, near the data. Move that widget to the upper right hand corner. It should look like this.</p>
+                        <br><br>
+                        <img src="img/image10.png" style="width: 100%">
+                        <br><br>
+                        <p>In this box, you can ask questions in plain English. For example, start typing "what metro region has the most 1 unit permits". Note that as you type, it brings up more and more relevant visuals and data. Change the "1 unit permits" to "5 unit permits". You can play with this feature and see how it guides you to ask the question in a way that generates an answer. </p>
+                        <br><br>
+                        <img src="img/image11.png" style="width: 100%">
+                    </section>
+                    <section id='publish' >
+                        <h2 class="sectionhead">HOW DO I PUBLISH</h2>
+                        <p>Click on the little left-pointing arrow above the question box next to the title to go back to your dashboard. Clicking on any of those visuals takes you back to the report so that you can interact with it. But what if you want to not just interact with it, you want to publish the report?  Power BI's Publish to Web feature lets publish your data story anywhere: Your blog, your website, etc.</p>
+                        <p>Click on File at the top of Power BI:</p>
+                        <br><br>
+                        <img src="img/image12.png" style="width: 100%">
+                        <br><br>
+                        <p>Now click on Publish to Web. Now you can get a link (that you can share in an email, etc.) or embed code that you can include on a website, blog, etc. This will publish a live version that will stay synchronized with the source report you created in Power BI. Any changes you make to the report will immediately be reflected in the version you have displayed.</p>
+                        <p>These are the basics for creating your visualizations, reports, and dashboards in Power BI, and then sharing them with your users. In the last <a href="http://commercedataservice.github.io/tutorial_ms_part3">tutorial</a>, we will go deeper into building queries using the Power BI Desktop.</p>
+                    </section>
+                   
+                
+                </div><!-- Content -->
+                  
+                <div id='sidebar' class="hidden-xs hidden-sm col-lg-2 col-md-2"><!-- Sidebar -->
+                       
+                    <ul id='featured-nav' class="nav nav-list featured-nav nav-stacked">
+                      
+                        
+                        <li>
+                            <ul class="fa-style"><!-- Font Awesome -->
+                               <!-- <li><a href="https://github.com/CommerceDataService/tutorial_ms_powerbi"><i class="fa fa-file-archive-o fa-lg"></i></a></li>
+                                <li><a href="https://github.com/CommerceDataService/tutorial_ms_powerbi"><i class="fa fa-file-code-o fa-lg"></i></a></li>
+                                <li><a href="https://github.com/CommerceDataService/tutorial_ms_powerbi"><i class="fa fa-github-square fa-lg"></i></a></li>-->
+                            </ul>
+                        </li>
+                        <li>
+                            
+                        </li>
+                        <li>
+                            <ul class="fa-style"><!-- Font Awesome -->
+                                <!--<li><a href="https://github.com/CommerceDataService/tutorial_ms_powerbi"><i class="fa fa-file-archive-o fa-lg"></i></a></li>
+                                <li><a href="https://github.com/CommerceDataService/tutorial_ms_powerbi"><i class="fa fa-file-code-o fa-lg"></i></a></li>
+                                <li><a href="https://github.com/CommerceDataService/tutorial_ms_powerbi" title="Github Repo for MS Power BI Part 1"><i class="fa fa-github-square fa-lg"></i></a></li>-->
+                            </ul>
+                        </li>
+                        <li>
+                            <ul class="fa-style"><!-- Font Awesome -->
+                                <li><a href="https://github.com/CommerceDataService/tutorial_ms_powerbi" title="Github Repo for MS Power BI Part 1"><i class="fa fa-github-square fa-lg"></i></a></li>
+                                <li><a href="https://twitter.com/adamhecktman" title="Twitter handle for ADAM HECKTMAN"><i class="fa fa-twitter-square fa-lg"></i></a></li><!-- Haven't added the SNS components -->
+                                <li><a href="https://twitter.com/tableteer"  title="Twitter handle for FRANK J. LA VIGNE"><i class="fa fa-twitter-square fa-lg"></i></a></li>
+                                <!--<li><a href=""><i class="fa fa-linkedin-square fa-lg"></i></a></li>
+                                <li><a href=""><i class="fa fa-facebook-square fa-lg"></i></a></li>-->
+                          
+                            </ul>
+                        </li>
+                        <li><a href="#report">REPORT ME</a></li>
+                        <li><a href="#dash">GOTTA DASH</a></li>
+                        <li><a href="#publish">PUBLISH!</a></li>
+                        
+                        
+                    </ul>
+                </div><!-- Sidebar -->
+            </div><!-- Row -->
+        </div><!-- Container-fluid -->
     </div>
-</div>
-
-<div id='start' class="container-fluid main-container">
-    <p style="font-family:Helvetica;">
-        <span style="font-size:150%;color:#7cbb00;"><strong>Where did we leave off?</strong><br></span>
-        In the last <a href="http://commercedataservice.github.io/tutorial_ms_powerbi">tutorial</a>, we got started with the Power BI desktop application, and then started exploring the Power BI web app, which provides similar functionality right from the browser. In this tutorial, we will create reports, dashboards, and ask questions of our data in plain English using the web app.
-    </p>
-    <p>For this tutorial, we will use another dataset from the US Census – residential building permits. The annual counts per Metropolitan Statistical Area are available at the <a href="https://www.census.gov/construction/bps/msaannual.html">U.S. Census Bureau</a> or converted to Excel in this <a href="https://github.com/CommerceDataService/tutorial_ms_part2/tree/master/data">repository</a>. In the next <a href="http://commercedataservice.github.io/tutorial_ms_part3">tutorial</a>, I will show you how to create this data set by building a query that combines separate data sets from separate years into a single, easy to use data set. But for now, make sure you have the file Building Permits 2011-2014 downloaded from the GitHub repository (For instructions on how I did this, see my blog at <a href="need/url/here">need_url_here</a>). Note that this data can be in just about any format. Power BI accepts a wide variety of formats from a wide variety of sources.</p>
-    <p>To open the web app, go back to PowerBI.com and sign in. You can dismiss the welcome screen (remember at some point to watch the brief videos on that screen, however!). You will see something like this:</p>
-    <br><br>
-    <img src="img/image1.png" style="width: 100%">
-    <br><br>
-    <p>The navigation pane on the left is your workspace. It contains the three basic building blocks of Power BI: your dashboards, your reports, and your datasets. On the right, it will open the last dashboard you created (yours may be blank, as this is your first time). First, we are going to “get our data”. Click on Get Data on the lower left. You will have options as to where your data can be located. It can be a service, a file, even a database somewhere. In this case, you will use the sample file, so click on files, then click on local files. Point it to wherever you downloaded Building Permits 2011-2014.XLSX. Without doing anything else, Power BI has gotten you started with a few things:</p>
-    <br><br>
-    <img src="img/image2.png" style="width: 100%">
-    <br><br>
-    <p>First, note that the dataset appears in your catalog of datasets on the lower left part of the navigation pane. Also note that it has gotten a blank dashboard started for you. And, in the right, just as in Part 1, it knows about the fields in your table and gives you visualizations to try. Let’s create a report.</p>
-</div>
-<br><br>
-<div id="report" class="container-fluid main-container">
-    <p style="font-family:Helvetica;">
-    <span style="font-size:150%;color:#7cbb00;"><strong>So report me!</strong><br></span>
-    Let’s start with the absolute basic. We will see how many residential permits were issued in the US over time. Line charts are good for time series, so let’s create a report in three clicks. First, click on the line chart icon under visualizations:</p>
-    <br><br>
-    <img src="img/image3.png" style="width: 100%">
-    <br><br>
-    <p>Next, simply click the fields you want to track. Power BI will figure out the axis. Click year and click total. Right away, you have a simple line chart. Let’s break it down to see how big projects (with 5 or more units) versus how many small projects (1 unit) compared. Click on the 1-unit check box under Fields, then click on the 5 Units. Now you have three lines and can spot the trends.</p>
-    <p>Notice that it gave a name and a legend above the chart. You can change that title if you want it to be more meaningful. Click on the Edit icon (the little pencil in the Visualize pane), and expand the Title options. We can call this “Permits By Unit Number”. Move the chart to the upper right and make room for our next chart. </p>
-    <br><br>
-    <img src="img/image4.png" style="width: 100%">
-    <br><br>
-    <p>We are now going to compare the total building permits by geography. The geography in this data set is based on metropolitan area. For example, the Chicago area is represented by the name “Chicago-Joliet-Naperville, IL-IN-WI”.  Power BI will do its best to figure out the optimal chart type even if you do not specify what that chart type is. Let’s try this. Click on a blank space, then simply click on the Total field. You can see a column chart starting to form. Now click on Metro Region (our geography). Now you have a column chart with each column representing a metropolitan area. Stretch it to the right so that it horizontally reaches across the screen, and you will have something like this:</p>
-    <br><br>
-    <img src="img/image5.png" style="width: 100%">
-    <br><br>
-    <p>Something very interesting has happened here. Without any user interaction, these two visuals are automatically tied together. Power BI figures out the relationship on its own. For example, click on one of the columns representing a metro area. Notice that not only has the column chart put the focus on that area, the line chart is automatically filtered for that area as well!  Click on other metro areas and see how it changes.</p>
-    <p>Of course, this being geographic data, a map would be nice. Click in blank space in the upper right, and click on the World Map visual. You can use drag and drop to place the fields on the visual pane. For example, let’s drag Metro Region to location. You will see circles across the U.S. Expand the size of the visual by dragging from one of the corners. Zoom in and you can get a better view. Now we need a field to represent the size of the circle. Drag the Total field to value. Zoom in until you can see the different sizes of the circles. Note that in data sets where latitude and longitude are available, you can use these as location fields if that level of precision is warranted.</p>
-    <p>Let’s add a couple of more visuals and then share these in the form of a dashboard. Arrange your pallet so that it looks like this:</p>
-    <br><br>
-    <img src="img/image6.png" style="width: 100%">
-    <br><br>
-    <p>We will add two more items to that space in the lower left. First, a simple gauge that shows the total permits issued in the 4-year period. Click on the blank space gauge visual in the Visualizations pane. Drag the Total field as the value. Now make it small enough to add one more item – the slicer.</p>
-    <p>A slicer allows you to filter all of your data using a check box. Click on the last blank space on your pallet on the lower left and then click on the Slicer from the Visualization pane. Now, all you have to do is tell it how you want the user to be able to “slice” the data. Drag the Year field into the Values. Resize and place it so that it looks like this:</p>
-    <br><br>
-    <img src="img/image7.png" style="width: 100%">
-    <br><br>
-    <p>You have one more task. We want to give our users the option of selecting all years, with one click. With the slicer selected, click on the Edit icon. Expand the Selection Controls and turn on Select All and turn Single Select off. Now go back and play with the check boxes on the Slicer and see what happens to the rest of your visuals.</p>
-</div>
-<br><br>
-<div id="dash" class="container-fluid main-container">
-    <p style="font-family:Helvetica;">
-    <span style="font-size:150%;color:#7cbb00;"><strong>Gotta dash!</strong><br></span>
-    You can take items from your various reports and create a dashboard for yourself or your users. Personalized dashboards allow you to monitor your most important data, at a glance. A dashboard can combine all sorts of data (on-premises and cloud-born data) in a single pane of glass, providing a consolidated view across the organization regardless of where the data lives. Each metric, or insight, is displayed on the dashboard as a tile. In this simple case, however, we are going to use a single source of our data.</p>
-    <p>First, you need to decide which elements should appear on your dashboard. Hover over your visualizations and you will see a Push Pin icon in the upper right hand corner. This allows you to “pin” that visual to the dashboard of your choice. Choose a visual and click on the Push Pin. The first time you do it, it will ask you to save the report (if you haven’t already). Then it will ask you which Dashboard you want to pin it to. </p>
-    <br><br>
-    <img src="img/image8.png" style="width: 100%">
-    <br><br>
-    <p>You can pin it to an existing dashboard or a new one. Chose New dashboard and give it a name such as “US Building Permits”. Do the same for the rest of the visuals (you won’t be able to pin the slicer, and you will see why you don’t need to later). Now adjust your visuals the way you would like them, leaving room for one more widget that we will add next. For example:</p>
-    <br><br>
-    <img src="img/image9.png" style="width: 100%">
-    <br><br>
-    <p>Click on add widget in the upper right. You will be able to add images, web content, text boxes, and video. Click on Video. Use the URL <a href="https://youtu.be/vaPIYb7NDRc">https://youtu.be/vaPIYb7NDRc</a>for the video URL and Commerce Data Advisory Committee Meeting for your title. Now you have YouTube video embedded right where your users need it, near the data. Move that widget to the upper right hand corner. It should look like this.</p>
-    <br><br>
-    <img src="img/image10.png" style="width: 100%">
-    <br><br>
-    <p>In this box, you can ask questions in plain English. For example, start typing “what metro region has the most 1 unit permits”. Note that as you type, it brings up more and more relevant visuals and data. Change the “1 unit permits” to “5 unit permits”. You can play with this feature and see how it guides you to ask the question in a way that generates an answer. </p>
-    <br><br>
-    <img src="img/image11.png" style="width: 100%">
-    <br><br>
-</div>
-<br><br>
-<div id="publish" class="container-fluid main-container">
-    <p style="font-family:Helvetica;">
-    <span style="font-size:150%;color:#7cbb00;"><strong>How do I publish?</strong><br></span>
-    Click on the little left-pointing arrow above the question box next to the title to go back to your dashboard. Clicking on any of those visuals takes you back to the report so that you can interact with it. But what if you want to not just interact with it, you want to publish the report?  Power BI’s Publish to Web feature lets publish your data story anywhere: Your blog, your website, etc.</p>
-    <p>Click on File at the top of Power BI:</p>
-    <br><br>
-    <img src="img/image12.png" style="width: 100%">
-    <br><br>
-    <p>Now click on Publish to Web. Now you can get a link (that you can share in an email, etc.) or embed code that you can include on a website, blog, etc. This will publish a live version that will stay synchronized with the source report you created in Power BI. Any changes you make to the report will immediately be reflected in the version you have displayed.</p>
-    <p>These are the basics for creating your visualizations, reports, and dashboards in Power BI, and then sharing them with your users. In the last <a href="http://commercedataservice.github.io/tutorial_ms_part3">tutorial</a>, we will go deeper into building queries using the Power BI Desktop.</p>
-</div>
-
-
-<!-- Getting Started/Code Notebook Section -->
-<!-- <div id='code' style="color:black;font-family:Helvetica;" >
-    <div class="container-fluid main-container">
-    <p style="font-family:Helvetica"><span style="font-size:200%;color:#7cbb00;"><br><strong>TEMPLATE_GETSTARTED</strong></span>
-        <br>Schlitz hoodie echo park godard, chicharrones gentrify small batch wayfarers gastropub put a bird on it humblebrag microdosing taxidermy drinking vinegar. Health goth scenester tacos actually, ugh tumblr vinyl XOXO ennui meditation try-hard. Narwhal seitan artisan, ugh flannel green juice polaroid pickled drinking vinegar tousled plaid man bun heirloom mixtape. Keytar try-hard jean shorts thundercats meh. Wayfarers banh mi sriracha, bitters intelligentsia messenger bag distillery migas. Fashion axe fixie photo booth gluten-free seitan, meh bicycle rights thundercats post-ironic occupy etsy. Post-ironic chia synth, cronut chillwave tousled kale chips craft beer umami sriracha health goth shoreditch paleo.</p>
-    <p>Follow along in the Jupyter Notebook below or check out the code files at <a href="https://github.com/CommerceDataService/tutorial_ms_part2">tutorial_ms_part2</a>.</p> 
-    <p><a href="./TEMPLATE_NOTEBOOK.ipynb">Download TEMPLATE_NOTEBOOK_TYPE</a></p>
-    </div>
-</div> -->
-
-<!-- <div>
-<iframe src="markdown_or_jupyter_export" marginwidth="0" frameborder = "0"  marginheight="0" scrolling="no" width="100%" height="100%" onload="resizeIframe(this)"></iframe>
-</div>
-
-<script language="javascript" type="text/javascript">
-  function resizeIframe(obj) {
-    obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
-  }
-</script>
- -->
 
 </body>
 </html>
